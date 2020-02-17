@@ -10,7 +10,7 @@
 
 void printStart();
 int ringScan (int ringSelect, char ringOne, char ringTwo, char ringThree);
-
+int poleScan (int poleSelect, int poleOne, int poleTwo, int poleThree);
 
 int main (void) {
 
@@ -19,14 +19,22 @@ int main (void) {
     char ringOne, ringTwo, ringThree;
     int ringSelect;
 
+    int poleOne, poleTwo, poleThree;
+
+    poleOne = 1;
+    poleTwo = 2;
+    poleThree = 3;
+
+
     ringOne   = '&';
     ringTwo   = '$';
     ringThree = '#';
 
 
 	printStart();
-    ringScan(ringSelect,ringOne,ringTwo,ringThree);
+    ringSelect = ringScan(ringSelect,ringOne,ringTwo,ringThree);
 
+    printf("%d\n",ringSelect);
 
 	return 0;
 }
@@ -49,9 +57,10 @@ int ringScan (int ringSelect, char ringOne, char ringTwo, char ringThree) {
         printf("Not a valid ring \n");
         return 0;        
     }
-    return 1;
+    return ringSelect;
 }
 
+// Print function for beginning the game
 void printStart(){
 
 	printf("\n\n");
