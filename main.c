@@ -9,7 +9,7 @@
 
 
 void printStart();
-int ringScan (char ringSelect, char ringOne, char ringTwo, char ringThree);
+int ringScan (int ringSelect, char ringOne, char ringTwo, char ringThree);
 
 
 int main (void) {
@@ -17,7 +17,7 @@ int main (void) {
 	int numMoves = 0;
 
     char ringOne, ringTwo, ringThree;
-    char ringSelect;
+    int ringSelect;
 
     ringOne   = '&';
     ringTwo   = '$';
@@ -25,33 +25,30 @@ int main (void) {
 
 
 	printStart();
-
-    printf("Select ring to move:  \n");
-    scanf ("%c",&ringSelect);
-
     ringScan(ringSelect,ringOne,ringTwo,ringThree);
 
 
 	return 0;
 }
 
-int ringScan (char ringSelect, char ringOne, char ringTwo, char ringThree) {
+int ringScan (int ringSelect, char ringOne, char ringTwo, char ringThree) {
 
-    switch (ringSelect){
-        case RINGONE :
-            printf("Selected ring one '%s' \n",ringOne);
-            //break;
-        case RINGTWO :
-            printf("Selected ring two '%s' \n",ringTwo);
-            break;
-        case RINGTHREE :
-            printf("Selected ring three '%s' \n",ringThree);
-            break;
-        default :
-            printf("Not a valid ring \n");
-            return 0;
+    printf("Select ring to move:  \n");
+    scanf("%d",&ringSelect);
+
+    if (ringSelect==1){
+        printf("Selected ring one '%c' \n",ringOne);
     }
-
+    else if(ringSelect==2){
+        printf("Selected ring two '%c' \n",ringTwo);
+    }
+    else if (ringSelect==3){
+        printf("Selected ring three '%c' \n",ringThree);
+    }
+    else{
+        printf("Not a valid ring \n");
+        return 0;        
+    }
     return 1;
 }
 
